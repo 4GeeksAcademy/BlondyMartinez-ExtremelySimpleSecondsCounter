@@ -1,24 +1,30 @@
 import React from "react";
+import { Helmet } from 'react-helmet';
 
-//include images into your bundle
-import rigoImage from "../../img/rigo-baby.jpg";
 
+
+const Card = (props) => {
+	return(
+		<div className="card">
+			<h1>{props.digit}</h1>
+		</div>
+	)
+}
 //create your first component
-const Home = () => {
+const Home = (props) => {
+	let numbers = props.numbers;
 	return (
-		<div className="text-center">
-			<h1 className="text-center mt-5">Hello Rigo!</h1>
-			<p>
-				<img src={rigoImage} />
-			</p>
-			<a href="#" className="btn btn-success">
-				If you see this green button... bootstrap is working...
-			</a>
-			<p>
-				Made by{" "}
-				<a href="http://www.4geeksacademy.com">4Geeks Academy</a>, with
-				love!
-			</p>
+		<div className="d-flex">
+			<Helmet>
+        		<script src="https://kit.fontawesome.com/a20bb7d309.js" crossorigin="anonymous" defer />
+      		</Helmet>
+			<Card digit={<i class="fa-regular fa-clock"></i>} />
+			<Card digit={numbers[0]} />
+			<Card digit={numbers[1]} />
+			<Card digit={numbers[2]} />
+			<Card digit={numbers[3]} />
+			<Card digit={numbers[4]} />
+			<Card digit={numbers[5]} />
 		</div>
 	);
 };
